@@ -1,6 +1,7 @@
 import {  useState } from "react"
 import {addData} from "../store/slices/UserSlice"
 import {useDispatch} from "react-redux"
+import { useNavigate } from "react-router-dom";
 const initialValue = {
     name:"",
     email:"",
@@ -9,6 +10,7 @@ const initialValue = {
 }
 
 const Form = () => {
+    const navigate = useNavigate()
     const [val,setVal] = useState(initialValue);
     const dispatch = useDispatch()
     
@@ -24,6 +26,7 @@ const Form = () => {
         return;
     }
         dispatch(addData(val));
+        navigate("/read")
         setVal(initialValue)
     }
   return (
