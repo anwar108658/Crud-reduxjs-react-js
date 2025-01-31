@@ -6,7 +6,6 @@ import CardUI from "../components/CardUI"
 const AllPost = () => {
   const  dispatch = useDispatch();
   const {isloading,userData} = useSelector(state => state.UserSlice)
-  // console.log(isloading,userData)
   useEffect(() => {
   dispatch(getUsers())
   },[])
